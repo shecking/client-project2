@@ -1,1 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
+
+$success-text-color: #008000;
+$failure-text-color: #f00;
+
+.failure-message {
+  color: $failure-text-color;
+}
+
+.success-message {
+  color: $success-text-color;
+}
