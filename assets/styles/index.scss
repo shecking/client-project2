@@ -2,6 +2,8 @@
 
 $success-text-color: #008000;
 $failure-text-color: #f00;
+$background-nav-bar: #7077a4;
+$white-text: #fff;
 
 .failure-message {
   color: $failure-text-color;
@@ -9,4 +11,23 @@ $failure-text-color: #f00;
 
 .success-message {
   color: $success-text-color;
+}
+
+h1 {
+  padding: 30px;
+}
+
+ul {
+  background-color: $background-nav-bar;
+  color: $white-text;
+  display: inline-flex;
+  font-size: 24px;
+  justify-content: space-around;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  text-decoration: none;
+  top: 0;
+  width: 100%;
 }
