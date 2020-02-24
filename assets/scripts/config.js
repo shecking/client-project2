@@ -2,8 +2,8 @@
 
 let apiUrl
 const apiUrls = {
-  production: 'https://rails-api-project2.herokuapp.com/',
-  development: 'http://localhost:7165'
+  production: 'https://rails-api-project2-production.herokuapp.com/',
+  development: 'http://rails-api-project2.herokuapp.com/'
 }
 
 if (window.location.hostname === 'localhost') {
