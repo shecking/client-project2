@@ -3,62 +3,81 @@
 const store = require('./../store')
 // const uiActions = require('./uiActions')
 
-const onSignUpSuccessPST = function (response) {
-  store.user = response.user
+const setStatusSuccess = function () {
   $('#message').removeClass()
   $('#message').addClass('success-message')
+  $('.resetfield').trigger('reset')
+  // $('#message').show()
+}
+
+const setStatusFailure = function () {
+  $('#message').removeClass()
+  $('#message').addClass('failure-message')
+  // $('#message').show()
+}
+
+const showPassAndOut = function () {
+  $('.change-password').show()
+  $('.sign-out').show()
+  $('.sign-up').hide()
+  $('.sign-in').hide()
+}
+
+const showUpAndIn = function () {
+  $('.change-password').hide()
+  $('.sign-out').hide()
+  $('.sign-up').show()
+  $('.sign-in').show()
+}
+//
+//
+//
+//
+
+const onSignUpSuccessPST = function (response) {
+  store.user = response.user
+  setStatusSuccess()
   $('#message').text(response.user.email + ' signed up successfully. Welcome to Practice Session Tracker!')
-  $('#sign-up').trigger('reset')
+  showPassAndOut()
 }
 
 const onSignUpFailurePST = function (response) {
-  $('#message').removeClass()
-  $('#message').addClass('failure-message')
+  setStatusFailure()
   $('#message').text('Error: PST sign up failed. Please try again.')
-  $('#sign-up').trigger('reset')
 }
 
 const onSignInSuccessPST = function (response) {
   store.user = response.user
-  $('#message').removeClass()
-  $('#message').addClass('success-message')
+  setStatusSuccess()
   $('#message').text(response.user.email + ' signed in to Practice Session Tracker.')
-  $('#sign-in').trigger('reset')
+  showPassAndOut()
 }
 
 const onSignInFailurePST = function (response) {
-  $('#message').removeClass()
-  $('#message').addClass('failure-message')
+  setStatusFailure()
   $('#message').text('Error: PST sign in failed. Please try again.')
-  $('#sign-in').trigger('reset')
 }
 
 const onChangePasswordSuccessPST = function (response) {
-  $('#message').removeClass()
-  $('#message').addClass('success-message')
+  setStatusSuccess()
   $('#message').text('Password changed successfully.')
-  $('#change-password').trigger('reset')
 }
 
 const onChangePasswordFailurePST = function (response) {
-  $('#message').removeClass()
-  $('#message').addClass('failure-message')
+  setStatusFailure()
   $('#message').text('Error: password not changed. Please try again.')
-  $('#change-password').trigger('reset')
 }
 
 const onSignOutSuccessPST = function (response) {
   store.user = null
-  $('#message').removeClass()
-  $('#message').addClass('success-message')
-  $('#message').show()
+  setStatusSuccess()
   $('#message').text('User signed out of Practice Session Tracker.')
+  showUpAndIn()
 }
 
 const onSignOutFailureTTT = function (response) {
+  setStatusFailure()
   $('#message').text('Error: user not signed out. Please try again.')
-  $('#message').removeClass()
-  $('#message').addClass('failure-message')
 }
 
 module.exports = {
