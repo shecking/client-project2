@@ -24,6 +24,11 @@ const signOutNavClick = function (event) {
   event.preventDefault()
   ui.signOutNavClick()
 }
+//
+//
+//
+//
+//
 
 const onSignUpPST = function (event) {
   event.preventDefault()
@@ -61,29 +66,43 @@ const onSignOutPST = function (event) {
     .then(ui.onSignOutSuccessPST)
     .catch(ui.onSignOutFailurePST)
 }
+//
+//
+//
+//
+//
 
-const onAllSessClick = function (event) {
+const allSessClick = function (event) {
   event.preventDefault()
   api.allSessPST()
     .then(ui.onAllSessSuccessPST)
     .catch(ui.onAllSessFailurePST)
 }
 
-const onNewSessClick = function (event) {
+const newSessClick = function (event) {
   event.preventDefault()
-  api.newSessPST()
+  ui.newSessClick()
+}
+
+const editSessClick = function (event) {
+  event.preventDefault()
+  ui.editSessClick()
+}
+
+const onNewSessStore = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+  api.newSessPST(data)
     .then(ui.onNewSessSuccessPST)
     .catch(ui.onNewSessFailurePST)
 }
 
-const onEditSessClick = function (event) {
-  event.preventDefault()
-  api.editSessPST()
-    .then(ui.onEditSessSuccessPST)
-    .catch(ui.onEditSessFailurePST)
+const onEditSessStore = function (event) {
+
 }
 
-const onDeleteSessClick = function (event) {
+const onDeleteSessStore = function (event) {
   event.preventDefault()
   api.deleteSessPST()
     .then(ui.onDeleteSessSuccessPST)
@@ -99,8 +118,10 @@ module.exports = {
   onSignInPST,
   onChangePasswordPST,
   onSignOutPST,
-  onAllSessClick,
-  onNewSessClick,
-  onEditSessClick,
-  onDeleteSessClick
+  allSessClick,
+  newSessClick,
+  editSessClick,
+  onNewSessStore,
+  onEditSessStore,
+  onDeleteSessStore
 }

@@ -30,14 +30,14 @@ const navbarShowUpAndIn = function () {
   $('#sign-in-nav').show()
 }
 
-const sessionShowButtons = function () {
-  $('.session').show()
+const sessionShow = function () {
+  $('.session-buttons').show()
 }
 
-const sessionHideButtons = function () {
-  $('.session').hide()
+const sessionHide = function () {
+  $('.session-buttons').hide()
+  $('.session-input').hide()
 }
-
 //
 //
 //
@@ -67,7 +67,7 @@ const onSignUpSuccessPST = function (response) {
   navbarShowPassAndOut()
   $('.resetfield').hide()
   $('#status-message').text(response.user.email + ' signed up successfully. Welcome to Practice Session Tracker!')
-  sessionShowButtons()
+  sessionShow()
 }
 
 const onSignUpFailurePST = function (response) {
@@ -81,7 +81,7 @@ const onSignInSuccessPST = function (response) {
   navbarShowPassAndOut()
   $('.resetfield').hide()
   $('#status-message').text(response.user.email + ' signed in to Practice Session Tracker.')
-  sessionShowButtons()
+  sessionShow()
 }
 
 const onSignInFailurePST = function (response) {
@@ -102,7 +102,7 @@ const onChangePasswordFailurePST = function (response) {
 
 const onSignOutSuccessPST = function (response) {
   store.user = null
-  sessionHideButtons()
+  sessionHide()
   setStatusSuccess()
   $('.resetfield').hide()
   $('#status-message').text('User signed out of Practice Session Tracker.')
@@ -114,12 +114,34 @@ const onSignOutFailurePST = function (response) {
   $('#status-message').text('Error: user not signed out. Please try again.')
 }
 
-const onNewSessSuccessPST = function () {
+const onAllSessSuccessPST = function () {
+  setStatusSuccess()
+  $('#status-message').text('Here are all your practice sessions.')
+  $('#status-message').show()
+}
+
+const onAllSessFailurePST = function () {
+  setStatusFailure()
+  $('#status-message').text('Error: could not show practice sessions. Please try again.')
+  $('#status-message').show()
+}
+
+const newSessClick = function () {
   $('#status-message').hide()
+  $('.session-input').show()
+  $('.edit-session').hide()
+}
+
+const onNewSessSuccessPST = function (response) {
+  store.session = response.session
+  setStatusSuccess()
+  $('#status-message').text('You\'ve successfully logged your practice session.')
+  $('#status-message').show()
 }
 
 const onNewSessFailurePST = function () {
-  $('#status-message').hide()
+  setStatusFailure()
+  $('#status-message').show()
 }
 
 const onEditSessSuccessPST = function () {
@@ -150,6 +172,9 @@ module.exports = {
   onChangePasswordFailurePST,
   onSignOutSuccessPST,
   onSignOutFailurePST,
+  onAllSessSuccessPST,
+  onAllSessFailurePST,
+  newSessClick,
   onNewSessSuccessPST,
   onNewSessFailurePST,
   onEditSessSuccessPST,

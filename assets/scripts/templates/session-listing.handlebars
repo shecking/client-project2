@@ -1,0 +1,24 @@
+{{#each sessions as |session|}}
+  {{log session}}
+  <section data-id="{{session.id}}">
+    <h6>Date:</h6>
+    <h3>
+      {{session.date}}
+    </h3>
+    <h6>Time:</h6>
+    <h3>
+      {{session.time}}
+    </h3>
+    <h6>Time Spent Practicing:</h6>
+    <h3>
+      {{session.practice_time}}
+    </h3>
+    <h6>Notes:</h6>
+    <h3>
+      {{session.notes}}
+    </h3>
+    <button type="submit" class="btn btn-danger delete-session">Delete</button>
+    <!-- {{> partial}} -->
+  </section>
+
+{{/each}}
