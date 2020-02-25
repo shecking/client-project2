@@ -1,25 +1,56 @@
 @import '~bootstrap/scss/bootstrap';
-
 $success-text-color: #008000;
 $failure-text-color: #f00;
 $background-nav-bar: #7077a4;
-$white-text: #fff;
+$hover-color: #b5c1e6;
+$light-color: #d6d7dd;
+$dark-color: #4f4f4f;
+
+body {
+  background-color: $dark-color;
+}
+
+.btn-default {
+  background-color: $background-nav-bar;
+  border: 0;
+  color: $light-color;
+  margin: 0;
+  transition-duration: .3s;
+
+  &:hover {
+    background-color: $hover-color;
+    color: $dark-color;
+  }
+}
 
 .failure-message {
   color: $failure-text-color;
+  font-weight: bold;
+}
+
+h1 {
+  background-color: $dark-color;
+  color: $light-color;
+  padding: 60px 30px;
+  text-align: right;
+}
+
+legend {
+  color: $light-color;
+}
+
+.message {
+  border: 0;
+  padding: 60px 30px;
 }
 
 .success-message {
   color: $success-text-color;
-}
-
-h1 {
-  padding: 30px;
+  font-weight: bold;
 }
 
 ul {
   background-color: $background-nav-bar;
-  color: $white-text;
   display: inline-flex;
   font-size: 24px;
   justify-content: space-around;
