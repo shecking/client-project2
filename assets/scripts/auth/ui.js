@@ -7,38 +7,62 @@ const setStatusSuccess = function () {
   $('#message').removeClass()
   $('#message').addClass('success-message')
   $('.resetfield').trigger('reset')
-  // $('#message').show()
+  $('#message').show()
 }
 
 const setStatusFailure = function () {
   $('#message').removeClass()
   $('#message').addClass('failure-message')
-  // $('#message').show()
+  $('#message').show()
 }
 
-const showPassAndOut = function () {
-  $('.change-password').show()
-  $('.sign-out').show()
-  $('.sign-up').hide()
-  $('.sign-in').hide()
+const navbarShowPassAndOut = function () {
+  $('#change-password-nav').show()
+  $('#sign-out-nav').show()
+  $('#sign-up-nav').hide()
+  $('#sign-in-nav').hide()
 }
 
-const showUpAndIn = function () {
-  $('.change-password').hide()
-  $('.sign-out').hide()
-  $('.sign-up').show()
-  $('.sign-in').show()
+const navbarShowUpAndIn = function () {
+  $('#change-password-nav').hide()
+  $('#sign-out-nav').hide()
+  $('#sign-up-nav').show()
+  $('#sign-in-nav').show()
 }
+
 //
 //
 //
 //
+
+const signUpNavClick = function () {
+  $('.not-navbar').hide()
+  $('#message').hide()
+  $('#sign-up').show()
+}
+
+const signInNavClick = function () {
+  $('.not-navbar').hide()
+  $('#message').hide()
+  $('#sign-in').show()
+}
+
+const changePasswordNavClick = function () {
+  $('.not-navbar').hide()
+  $('#message').hide()
+  $('#change-password').show()
+}
+
+const signOutNavClick = function () {
+// JUST SIGN OUT
+}
 
 const onSignUpSuccessPST = function (response) {
   store.user = response.user
   setStatusSuccess()
+  navbarShowPassAndOut()
+  $('.not-navbar').hide()
   $('#message').text(response.user.email + ' signed up successfully. Welcome to Practice Session Tracker!')
-  showPassAndOut()
 }
 
 const onSignUpFailurePST = function (response) {
@@ -49,8 +73,9 @@ const onSignUpFailurePST = function (response) {
 const onSignInSuccessPST = function (response) {
   store.user = response.user
   setStatusSuccess()
+  navbarShowPassAndOut()
+  $('.not-navbar').hide()
   $('#message').text(response.user.email + ' signed in to Practice Session Tracker.')
-  showPassAndOut()
 }
 
 const onSignInFailurePST = function (response) {
@@ -60,6 +85,7 @@ const onSignInFailurePST = function (response) {
 
 const onChangePasswordSuccessPST = function (response) {
   setStatusSuccess()
+  $('.not-navbar').hide()
   $('#message').text('Password changed successfully.')
 }
 
@@ -71,8 +97,9 @@ const onChangePasswordFailurePST = function (response) {
 const onSignOutSuccessPST = function (response) {
   store.user = null
   setStatusSuccess()
+  $('.not-navbar').hide()
   $('#message').text('User signed out of Practice Session Tracker.')
-  showUpAndIn()
+  navbarShowUpAndIn()
 }
 
 const onSignOutFailureTTT = function (response) {
@@ -81,6 +108,10 @@ const onSignOutFailureTTT = function (response) {
 }
 
 module.exports = {
+  signUpNavClick,
+  signInNavClick,
+  changePasswordNavClick,
+  signOutNavClick,
   onSignUpSuccessPST,
   onSignUpFailurePST,
   onSignInSuccessPST,

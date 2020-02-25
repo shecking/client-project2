@@ -14,14 +14,14 @@
       <h1>Practice Session Tracker</h1>
       <br>
       <ul>
-        <li><a class="sign-up" id="sign-up-nav" href="#">Sign Up</a></li>
-        <li><a class="sign-in" id="sign-in-nav" href="#">Sign In</a></li>
-        <li><a class="change-password" id="change-password-nav" href="#">Change Password</a></li>
-        <li><a class="sign-out" id="sign-out-nav" href="#">Sign Out</a></li>
+        <li><a class="navbar" id="sign-up-nav" href="#">Sign Up</a></li>
+        <li><a class="navbar" id="sign-in-nav" href="#">Sign In</a></li>
+        <li><a class="navbar" id="change-password-nav" href="#">Change Password</a></li>
+        <li><a class="navbar" id="sign-out-nav" href="#">Sign Out</a></li>
       </ul>
-      <p id='message'></p>
+      <p id="message"></p>
       <br>
-      <form class="resetfield sign-up">
+      <form class="not-navbar resetfield" id="sign-up">
         <fieldset>
           <legend>Sign up for PST</legend>
           <input name="credentials[email]" type="email" placeholder="example@google.com">
@@ -30,7 +30,7 @@
           <input type="submit" value="Sign up">
         </fieldset>
       </form>
-      <form class="resetfield sign-in">
+      <form class="not-navbar resetfield" id="sign-in">
         <fieldset>
           <legend>Sign in to your PST account</legend>
           <input name="credentials[email]" type="email" placeholder="example@google.com">
@@ -38,7 +38,7 @@
           <input type="submit" value="Sign in">
         </fieldset>
       </form>
-      <form class="resetfield change-password">
+      <form class="not-navbar resetfield" id="change-password">
         <fieldset>
           <legend>Change your password</legend>
           <input name="passwords[old]" type="password" placeholder="Current password">
@@ -46,7 +46,7 @@
           <input type="submit" value="Change password">
         </fieldset>
       </form>
-      <form class="sign-out">
+      <form class="not-navbar" id="sign-out">
         <fieldset>
           <legend>Sign out</legend>
           <input type="submit" value="Sign out">

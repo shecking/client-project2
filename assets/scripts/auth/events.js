@@ -5,6 +5,26 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 // const store = require('../store.js')
 
+const signUpNavClick = function (event) {
+  event.preventDefault()
+  ui.signUpNavClick()
+}
+
+const signInNavClick = function (event) {
+  event.preventDefault()
+  ui.signInNavClick()
+}
+
+const changePasswordNavClick = function (event) {
+  event.preventDefault()
+  ui.changePasswordNavClick()
+}
+
+const signOutNavClick = function (event) {
+  event.preventDefault()
+  ui.signOutNavClick()
+}
+
 const onSignUpPST = function (event) {
   event.preventDefault()
   const form = event.target
@@ -42,6 +62,10 @@ const onSignOutPST = function (event) {
     .catch(ui.onSignOutFailurePST)
 }
 module.exports = {
+  signUpNavClick,
+  signInNavClick,
+  changePasswordNavClick,
+  signOutNavClick,
   onSignUpPST,
   onSignInPST,
   onChangePasswordPST,

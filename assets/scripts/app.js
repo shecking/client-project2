@@ -9,10 +9,12 @@
 const authEvents = require('./auth/events.js')
 
 $(() => {
-  $('.change-password').hide()
-  $('.sign-out').hide()
-  $('.sign-up').on('submit', authEvents.onSignUpPST)
-  $('.sign-in').on('submit', authEvents.onSignInPST)
-  $('.change-password').on('submit', authEvents.onChangePasswordPST)
-  $('.sign-out').on('click', authEvents.onSignOutPST)
+  $('.not-navbar').hide()
+  $('#sign-up-nav').on('click', authEvents.signUpNavClick)
+  $('#sign-in-nav').on('click', authEvents.signInNavClick)
+  $('#sign-up').on('submit', authEvents.onSignUpPST)
+  $('#sign-in').on('submit', authEvents.onSignInPST)
+  $('#change-password-nav').on('click', authEvents.changePasswordNavClick).hide()
+  $('#sign-out-nav').on('submit', authEvents.signOutPST).hide()
+  $('#change-password').on('submit', authEvents.onChangePasswordPST)
 })
