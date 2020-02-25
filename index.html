@@ -19,9 +19,10 @@
           <li><button class="btn btn-default navbar" id="sign-out-nav">Sign Out</button></li>
         </ul>
       </div>
+      <p id="status-message"></p>
       <br>
-      <div class="container">
-        <form class="not-navbar resetfield" id="sign-up">
+      <div class="container" id="input-fields">
+        <form class="resetfield" id="sign-up">
           <fieldset>
             <legend>Sign up for PST</legend>
             <input name="credentials[email]" type="email" placeholder="example@google.com">
@@ -30,7 +31,7 @@
             <input class="btn btn-default" type="submit" value="Sign up">
           </fieldset>
         </form>
-        <form class="not-navbar resetfield" id="sign-in">
+        <form class="resetfield" id="sign-in">
           <fieldset>
             <legend>Sign in to your PST account</legend>
             <input name="credentials[email]" type="email" placeholder="example@google.com">
@@ -38,7 +39,7 @@
             <input class="btn btn-default" type="submit" value="Sign in">
           </fieldset>
         </form>
-        <form class="not-navbar resetfield" id="change-password">
+        <form class="resetfield" id="change-password">
           <fieldset>
             <legend>Change your password</legend>
             <input name="passwords[old]" type="password" placeholder="Current password">
@@ -47,6 +48,18 @@
           </fieldset>
         </form>
       </div>
-      <p class="message" id="message"></p>
+      <div class="row session-buttons">
+        <div class="col-3">
+          <button class="btn btn-default btn-block" id="all-sess">SEE ALL SESSIONS</button>
+          <button class="btn btn-default btn-block" id="new-sess">NEW SESSION</button>
+          <button class="btn btn-default btn-block" id="edit-sess">EDIT SESSION</button>
+          <button class="btn btn-default btn-block" id="delete-sess">DELETE SESSION</button>
+        </div>
+        <div class="col-9">
+          <button class="btn-default">BUTTON 4</button>
+          <button class="btn-default">BUTTON 5</button>
+          <button class="btn-default">BUTTON 6</button>
+        </div>
+      </div>
     </body>
 </html>

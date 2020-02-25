@@ -9,7 +9,9 @@
 const authEvents = require('./auth/events.js')
 
 $(() => {
-  $('.not-navbar').hide()
+  $('#status-message').css('visibility', 'hidden')
+  $('.resetfield').hide()
+  $('.session-buttons').hide()
   $('#sign-up-nav').on('click', authEvents.signUpNavClick)
   $('#sign-in-nav').on('click', authEvents.signInNavClick)
   $('#sign-up').on('submit', authEvents.onSignUpPST)
@@ -17,4 +19,8 @@ $(() => {
   $('#change-password-nav').on('click', authEvents.changePasswordNavClick).hide()
   $('#sign-out-nav').on('click', authEvents.onSignOutPST).hide()
   $('#change-password').on('submit', authEvents.onChangePasswordPST)
+  $('#all-sess').on('click', authEvents.onAllSessClick)
+  $('#new-sess').on('click', authEvents.onNewSessClick)
+  $('#edit-sess').on('click', authEvents.onEditSessClick)
+  $('#delete-sess').on('click', authEvents.onDeleteSessClick)
 })

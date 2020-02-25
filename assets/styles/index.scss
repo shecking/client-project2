@@ -13,8 +13,11 @@ body {
 .btn-default {
   background-color: $background-nav-bar;
   border: 0;
+  border-radius: 8px;
   color: $light-color;
-  margin: 0;
+  display: inline-block;
+  justify-content: center;
+  max-width: 200px;
   transition-duration: .3s;
 
   &:hover {
@@ -23,9 +26,21 @@ body {
   }
 }
 
+.btn-block {
+  margin-left: 30px;
+}
+
+.container {
+  margin-top: 30px;
+}
+
 .failure-message {
+  background-color: $light-color;
+  border: 0;
+  border-radius: 8px;
   color: $failure-text-color;
   font-weight: bold;
+  padding: 5px 10px;
 }
 
 h1 {
@@ -39,14 +54,13 @@ legend {
   color: $light-color;
 }
 
-.message {
-  border: 0;
-  padding: 60px 30px;
-}
-
 .success-message {
+  background-color: $light-color;
+  border: 0;
+  border-radius: 8px;
   color: $success-text-color;
   font-weight: bold;
+  padding: 5px 10px;
 }
 
 ul {
