@@ -10,47 +10,43 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <br>
       <h1>Practice Session Tracker</h1>
+      <div>
+        <ul>
+          <li><button class="btn btn-default navbar" id="sign-up-nav">Sign Up</button></li>
+          <li><button class="btn btn-default navbar" id="sign-in-nav">Sign In</button></li>
+          <li><button class="btn btn-default navbar" id="change-password-nav">Change Password</button></li>
+          <li><button class="btn btn-default navbar" id="sign-out-nav">Sign Out</button></li>
+        </ul>
+      </div>
       <br>
-      <ul>
-        <li><a class="navbar" id="sign-up-nav" href="#">Sign Up</a></li>
-        <li><a class="navbar" id="sign-in-nav" href="#">Sign In</a></li>
-        <li><a class="navbar" id="change-password-nav" href="#">Change Password</a></li>
-        <li><a class="navbar" id="sign-out-nav" href="#">Sign Out</a></li>
-      </ul>
-      <p id="message"></p>
-      <br>
-      <form class="not-navbar resetfield" id="sign-up">
-        <fieldset>
-          <legend>Sign up for PST</legend>
-          <input name="credentials[email]" type="email" placeholder="example@google.com">
-          <input name="credentials[password]" type="password" placeholder="Password">
-          <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
-          <input type="submit" value="Sign up">
-        </fieldset>
-      </form>
-      <form class="not-navbar resetfield" id="sign-in">
-        <fieldset>
-          <legend>Sign in to your PST account</legend>
-          <input name="credentials[email]" type="email" placeholder="example@google.com">
-          <input name="credentials[password]" type="password" placeholder="Password">
-          <input type="submit" value="Sign in">
-        </fieldset>
-      </form>
-      <form class="not-navbar resetfield" id="change-password">
-        <fieldset>
-          <legend>Change your password</legend>
-          <input name="passwords[old]" type="password" placeholder="Current password">
-          <input name="passwords[new]" type="password" placeholder="New password">
-          <input type="submit" value="Change password">
-        </fieldset>
-      </form>
-      <form class="not-navbar" id="sign-out">
-        <fieldset>
-          <legend>Sign out</legend>
-          <input type="submit" value="Sign out">
-        </fieldset>
-      </form>
+      <div class="container">
+        <form class="not-navbar resetfield" id="sign-up">
+          <fieldset>
+            <legend>Sign up for PST</legend>
+            <input name="credentials[email]" type="email" placeholder="example@google.com">
+            <input name="credentials[password]" type="password" placeholder="Password">
+            <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+            <input class="btn btn-default" type="submit" value="Sign up">
+          </fieldset>
+        </form>
+        <form class="not-navbar resetfield" id="sign-in">
+          <fieldset>
+            <legend>Sign in to your PST account</legend>
+            <input name="credentials[email]" type="email" placeholder="example@google.com">
+            <input name="credentials[password]" type="password" placeholder="Password">
+            <input class="btn btn-default" type="submit" value="Sign in">
+          </fieldset>
+        </form>
+        <form class="not-navbar resetfield" id="change-password">
+          <fieldset>
+            <legend>Change your password</legend>
+            <input name="passwords[old]" type="password" placeholder="Current password">
+            <input name="passwords[new]" type="password" placeholder="New password">
+            <input class="btn btn-default" type="submit" value="Change password">
+          </fieldset>
+        </form>
+      </div>
+      <p class="message" id="message"></p>
     </body>
 </html>

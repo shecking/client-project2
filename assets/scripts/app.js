@@ -15,6 +15,6 @@ $(() => {
   $('#sign-up').on('submit', authEvents.onSignUpPST)
   $('#sign-in').on('submit', authEvents.onSignInPST)
   $('#change-password-nav').on('click', authEvents.changePasswordNavClick).hide()
-  $('#sign-out-nav').on('submit', authEvents.signOutPST).hide()
+  $('#sign-out-nav').on('click', authEvents.onSignOutPST).hide()
   $('#change-password').on('submit', authEvents.onChangePasswordPST)
 })
