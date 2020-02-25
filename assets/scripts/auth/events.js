@@ -61,6 +61,35 @@ const onSignOutPST = function (event) {
     .then(ui.onSignOutSuccessPST)
     .catch(ui.onSignOutFailurePST)
 }
+
+const onAllSessClick = function (event) {
+  event.preventDefault()
+  api.allSessPST()
+    .then(ui.onAllSessSuccessPST)
+    .catch(ui.onAllSessFailurePST)
+}
+
+const onNewSessClick = function (event) {
+  event.preventDefault()
+  api.newSessPST()
+    .then(ui.onNewSessSuccessPST)
+    .catch(ui.onNewSessFailurePST)
+}
+
+const onEditSessClick = function (event) {
+  event.preventDefault()
+  api.editSessPST()
+    .then(ui.onEditSessSuccessPST)
+    .catch(ui.onEditSessFailurePST)
+}
+
+const onDeleteSessClick = function (event) {
+  event.preventDefault()
+  api.deleteSessPST()
+    .then(ui.onDeleteSessSuccessPST)
+    .catch(ui.onDeleteSessFailurePST)
+}
+
 module.exports = {
   signUpNavClick,
   signInNavClick,
@@ -69,5 +98,9 @@ module.exports = {
   onSignUpPST,
   onSignInPST,
   onChangePasswordPST,
-  onSignOutPST
+  onSignOutPST,
+  onAllSessClick,
+  onNewSessClick,
+  onEditSessClick,
+  onDeleteSessClick
 }

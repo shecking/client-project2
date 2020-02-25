@@ -40,9 +40,56 @@ const signOutPST = function () {
   })
 }
 
+const allSessPST = function () {
+  return $.ajax({
+    url: config.apiUrl + '/sessions',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const newSessPST = function () {
+  return $.ajax({
+    url: config.apiUrl + '/sessions',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: '{}'
+  })
+}
+
+const editSessPST = function () {
+  return $.ajax({
+    url: config.apiUrl + '/sessions/' + store.session.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'session': {
+        'date': xxx,
+        'time': xxx,
+        'practice_time': xxx,
+        'notes': xxx
+      }
+    }
+  })
+}
+
+const deleteSessPST = function () {
+
+}
+
 module.exports = {
   signUpPST,
   signInPST,
   changePasswordPST,
-  signOutPST
+  signOutPST,
+  allSessPST,
+  newSessPST,
+  editSessPST,
+  deleteSessPST
 }

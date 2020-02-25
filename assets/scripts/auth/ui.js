@@ -4,16 +4,16 @@ const store = require('./../store')
 // const uiActions = require('./uiActions')
 
 const setStatusSuccess = function () {
-  $('#message').removeClass()
-  $('#message').addClass('success-message')
+  $('#status-message').removeClass()
+  $('#status-message').addClass('success-message')
   $('.resetfield').trigger('reset')
-  $('#message').show()
+  $('#status-message').css('visibility', 'visible')
 }
 
 const setStatusFailure = function () {
-  $('#message').removeClass()
-  $('#message').addClass('failure-message')
-  $('#message').show()
+  $('#status-message').removeClass()
+  $('#status-message').addClass('failure-message')
+  $('#status-message').css('visibility', 'visible')
 }
 
 const navbarShowPassAndOut = function () {
@@ -30,88 +30,118 @@ const navbarShowUpAndIn = function () {
   $('#sign-in-nav').show()
 }
 
+const sessionShowButtons = function () {
+  $('.session').show()
+}
+
+const sessionHideButtons = function () {
+  $('.session').hide()
+}
+
 //
 //
 //
 //
 
 const signUpNavClick = function () {
-  $('.not-navbar').hide()
-  $('#message').hide()
+  $('#status-message').css('visibility', 'hidden')
+  $('.resetfield').hide()
   $('#sign-up').show()
 }
 
 const signInNavClick = function () {
-  $('.not-navbar').hide()
-  $('#message').hide()
+  $('#status-message').css('visibility', 'hidden')
+  $('.resetfield').hide()
   $('#sign-in').show()
 }
 
 const changePasswordNavClick = function () {
-  $('.not-navbar').hide()
-  $('#message').hide()
+  $('#status-message').css('visibility', 'hidden')
+  $('.resetfield').hide()
   $('#change-password').show()
-}
-
-const signOutNavClick = function () {
-// JUST SIGN OUT
 }
 
 const onSignUpSuccessPST = function (response) {
   store.user = response.user
   setStatusSuccess()
   navbarShowPassAndOut()
-  $('.not-navbar').hide()
-  $('#message').text(response.user.email + ' signed up successfully. Welcome to Practice Session Tracker!')
+  $('.resetfield').hide()
+  $('#status-message').text(response.user.email + ' signed up successfully. Welcome to Practice Session Tracker!')
+  sessionShowButtons()
 }
 
 const onSignUpFailurePST = function (response) {
   setStatusFailure()
-  $('#message').text('Error: PST sign up failed. Please try again.')
+  $('#status-message').text('Error: PST sign up failed. Please try again.')
 }
 
 const onSignInSuccessPST = function (response) {
   store.user = response.user
   setStatusSuccess()
   navbarShowPassAndOut()
-  $('.not-navbar').hide()
-  $('#message').text(response.user.email + ' signed in to Practice Session Tracker.')
+  $('.resetfield').hide()
+  $('#status-message').text(response.user.email + ' signed in to Practice Session Tracker.')
+  sessionShowButtons()
 }
 
 const onSignInFailurePST = function (response) {
   setStatusFailure()
-  $('#message').text('Error: PST sign in failed. Please try again.')
+  $('#status-message').text('Error: PST sign in failed. Please try again.')
 }
 
 const onChangePasswordSuccessPST = function (response) {
   setStatusSuccess()
-  $('.not-navbar').hide()
-  $('#message').text('Password changed successfully.')
+  $('.resetfield').hide()
+  $('#status-message').text('Password changed successfully.')
 }
 
 const onChangePasswordFailurePST = function (response) {
   setStatusFailure()
-  $('#message').text('Error: password not changed. Please try again.')
+  $('#status-message').text('Error: password not changed. Please try again.')
 }
 
 const onSignOutSuccessPST = function (response) {
   store.user = null
+  sessionHideButtons()
   setStatusSuccess()
-  $('.not-navbar').hide()
-  $('#message').text('User signed out of Practice Session Tracker.')
+  $('.resetfield').hide()
+  $('#status-message').text('User signed out of Practice Session Tracker.')
   navbarShowUpAndIn()
 }
 
-const onSignOutFailureTTT = function (response) {
+const onSignOutFailurePST = function (response) {
   setStatusFailure()
-  $('#message').text('Error: user not signed out. Please try again.')
+  $('#status-message').text('Error: user not signed out. Please try again.')
+}
+
+const onNewSessSuccessPST = function () {
+  $('#status-message').hide()
+}
+
+const onNewSessFailurePST = function () {
+  $('#status-message').hide()
+}
+
+const onEditSessSuccessPST = function () {
+  $('#status-message').hide()
+}
+
+const onEditSessFailurePST = function () {
+  $('#status-message').hide()
+}
+
+const onDeleteSessSuccessPST = function () {
+  $('#status-message').hide()
+}
+
+const onDeleteSessFailurePST = function () {
+  $('#status-message').hide()
 }
 
 module.exports = {
   signUpNavClick,
   signInNavClick,
   changePasswordNavClick,
-  signOutNavClick,
   onSignUpSuccessPST,
   onSignUpFailurePST,
   onSignInSuccessPST,
@@ -119,5 +149,11 @@ module.exports = {
   onChangePasswordSuccessPST,
   onChangePasswordFailurePST,
   onSignOutSuccessPST,
-  onSignOutFailureTTT
+  onSignOutFailurePST,
+  onNewSessSuccessPST,
+  onNewSessFailurePST,
+  onEditSessSuccessPST,
+  onEditSessFailurePST,
+  onDeleteSessSuccessPST,
+  onDeleteSessFailurePST
 }
