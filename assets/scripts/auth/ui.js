@@ -60,8 +60,9 @@ const signInNavClick = function () {
 const changePasswordNavClick = function () {
   $('#status-message').css('visibility', 'hidden')
   $('.userfield').hide()
-  sessionHide()
+  $('.session-input').hide()
   $('#change-password').show()
+  $('.content').empty()
 }
 
 const onSignUpSuccessPST = function (response) {
@@ -123,6 +124,7 @@ const onAllSessSuccessPST = function (data) {
   setStatusSuccess()
   $('#status-message').text('Here are all your practice sessions.')
   $('#status-message').show()
+  $('.userfield').hide()
   $('.session-input').hide()
 
   const showSessionsHtml = showSessionsTemplate({ sessions: data.sessions })
@@ -143,9 +145,10 @@ const onAllSessFailurePST = function () {
 const newSessClick = function () {
   $('.content').empty()
   $('#status-message').hide()
+  $('.edit-session').hide()
+  $('.userfield').hide()
   $('.session-input').show()
   $('.new-session').show()
-  $('.edit-session').hide()
 }
 
 const onNewSessSuccessPST = function (response) {
@@ -202,6 +205,7 @@ const onDeleteSessSuccessPST = function (data) {
   setStatusSuccess()
   $('#status-message').text('You\'ve successfully deleted that practice session.')
   $('#status-message').show()
+  $('.content').empty()
 }
 
 const onDeleteSessFailurePST = function () {
