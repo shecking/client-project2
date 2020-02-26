@@ -86,7 +86,8 @@ const newSessClick = function (event) {
 
 const editSessClick = function (event) {
   event.preventDefault()
-  ui.editSessClick()
+  const id = $(event.target).data('id')
+  ui.editSessClick(id)
 }
 
 const onNewSessStore = function (event) {

@@ -63,7 +63,7 @@ const newSessPST = function (data) {
 // known error in edit API call
 const editSessPST = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/sessions/' + data.session.id,
+    url: config.apiUrl + '/sessions/' + store.editID,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token

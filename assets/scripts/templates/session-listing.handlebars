@@ -1,20 +1,20 @@
 {{#each sessions as |session|}}
   {{log session}}
-  <section data-id="{{session.id}}">
+  <section id="{{session.id}}">
     <h6>Date:</h6>
-    <h3>
+    <h3 class='date'>
       {{session.date}}
     </h3>
     <h6>Time:</h6>
-    <h3>
+    <h3 class='time'>
       {{session.time}}
     </h3>
-    <h6>Time Spent Practicing:</h6>
-    <h3>
+    <h6>Minutes Spent Practicing:</h6>
+    <h3 class='practice_time'>
       {{session.practice_time}}
     </h3>
     <h6>Notes:</h6>
-    <p>
+    <p class='notes'>
       {{session.notes}}
     </p>
     <button type="submit" class="btn btn-primary edit-session" data-id="{{session.id}}">Edit</button>

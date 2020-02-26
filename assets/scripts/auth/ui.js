@@ -68,9 +68,9 @@ const changePasswordNavClick = function () {
 const onSignUpSuccessPST = function (response) {
   store.user = response.user
   setStatusSuccess()
-  navbarShowPassAndOut()
-  $('.userfield').hide()
   $('#status-message').text(response.user.email + ' signed up successfully. Welcome to Practice Session Tracker!')
+  $('.userfield').hide()
+  navbarShowPassAndOut()
   sessionShow()
 }
 
@@ -82,9 +82,9 @@ const onSignUpFailurePST = function (response) {
 const onSignInSuccessPST = function (response) {
   store.user = response.user
   setStatusSuccess()
-  navbarShowPassAndOut()
-  $('.userfield').hide()
   $('#status-message').text(response.user.email + ' signed in to Practice Session Tracker.')
+  $('.userfield').hide()
+  navbarShowPassAndOut()
   sessionShow()
 }
 
@@ -103,6 +103,7 @@ const onChangePasswordSuccessPST = function (response) {
 const onChangePasswordFailurePST = function (response) {
   setStatusFailure()
   $('#status-message').text('Error: password not changed. Please try again.')
+  $('.userfield').trigger('reset')
 }
 
 const onSignOutSuccessPST = function (response) {
@@ -124,6 +125,7 @@ const onAllSessSuccessPST = function (data) {
   $('#status-message').text('Here are all your practice sessions.')
   $('#status-message').show()
   $('.session-input').hide()
+
   const showSessionsHtml = showSessionsTemplate({ sessions: data.sessions })
   $('.content').html(showSessionsHtml)
 }
@@ -132,6 +134,7 @@ const onAllSessFailurePST = function () {
   setStatusFailure()
   $('#status-message').text('Error: could not show practice sessions. Please try again.')
   $('#status-message').show()
+  $('.session-input').hide()
 }
 
 const newSessClick = function () {
@@ -157,11 +160,23 @@ const onNewSessFailurePST = function () {
   $('#status-message').show()
 }
 
-const editSessClick = function () {
+const editSessClick = function (id) {
+  const date = $('#' + id + ' > .date').text().trim()
+  const time = $('#' + id + ' > .time').text().trim()
+  const practiceTime = $('#' + id + ' > .practice_time').text().trim()
+  const notes = $('#' + id + ' > .notes').text().trim()
+
+  store.editID = id
+
   $('#status-message').hide()
+  $('.new-session').hide()
   $('.session-input').show()
   $('.edit-session').show()
-  $('.new-session').hide()
+  // console.log($(".edit-session > fieldset > input[name='session[date]']").val())
+  $(".edit-session > fieldset > input[name='session[date]']").val(date)
+  $(".edit-session > fieldset > input[name='session[time]']").val(time)
+  $(".edit-session > fieldset > input[name='session[practice_time]']").val(practiceTime)
+  $(".edit-session > fieldset > input[name='session[notes]']").val(notes)
 }
 
 const onEditSessSuccessPST = function (response) {
@@ -181,11 +196,14 @@ const onEditSessFailurePST = function () {
 
 const onDeleteSessSuccessPST = function (response) {
   store.session = response.session
+  setStatusSuccess()
   $('#status-message').text('You\'ve successfully deleted this practice session.')
   $('#status-message').show()
 }
 
 const onDeleteSessFailurePST = function () {
+  setStatusFailure()
+  $('#status-message').text('Error: practice session not deleted. Please try again.')
   $('#status-message').show()
 }
 
