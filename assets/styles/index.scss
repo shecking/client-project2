@@ -24,6 +24,11 @@ body {
     background-color: $hover-color;
     color: $dark-color;
   }
+
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
 }
 
 .btn-block {
@@ -50,8 +55,13 @@ body {
 h1 {
   background-color: $dark-color;
   color: $light-color;
-  padding: 60px 30px;
+  padding: 60px 30px 0;
   text-align: left;
+}
+
+h4 {
+  color: $light-color;
+  padding: 0 30px;
 }
 
 label {
@@ -86,6 +96,10 @@ main {
 
 .new-session {
   padding: 5px;
+}
+
+p {
+  margin: 0 30px;
 }
 
 .short-input {
