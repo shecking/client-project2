@@ -50,37 +50,36 @@ const allSessPST = function () {
   })
 }
 
-const newSessPST = function () {
+const newSessPST = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sessions',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: '{}'
+    data: data
   })
 }
 
-const editSessPST = function () {
+const editSessPST = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sessions/' + store.session.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: {
-      'session': {
-        'date': xxx,
-        'time': xxx,
-        'practice_time': xxx,
-        'notes': xxx
-      }
-    }
+    data: data
   })
 }
 
-const deleteSessPST = function () {
-
+const deleteSessPST = function (sessionId) {
+  return $.ajax({
+    url: config.apiUrl + '/sessions/' + sessionId,
+    method: 'DELETE',
+    header: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
 }
 
 module.exports = {
