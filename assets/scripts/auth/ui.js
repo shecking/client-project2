@@ -12,7 +12,6 @@ const setStatusSuccess = function () {
 }
 
 const setStatusFailure = function () {
-  $('.content').empty()
   $('#status-message').removeClass()
   $('#status-message').addClass('failure-message')
   $('#status-message').css('visibility', 'visible')
@@ -167,25 +166,26 @@ const editSessClick = function (id) {
   const notes = $('#' + id + ' > .notes').text().trim()
 
   store.editID = id
-
-  $('#status-message').hide()
-  $('.new-session').hide()
-  $('.session-input').show()
-  $('.edit-session').show()
   // console.log($(".edit-session > fieldset > input[name='session[date]']").val())
   $(".edit-session > fieldset > input[name='session[date]']").val(date)
   $(".edit-session > fieldset > input[name='session[time]']").val(time)
   $(".edit-session > fieldset > input[name='session[practice_time]']").val(practiceTime)
   $(".edit-session > fieldset > input[name='session[notes]']").val(notes)
+
+  $('#status-message').hide()
+  $('.new-session').hide()
+  $('.session-input').show()
+  $('.edit-session').show()
 }
 
 const onEditSessSuccessPST = function (response) {
   store.session = response.session
   setStatusSuccess()
-  $('#status-message').text('You\'ve successfully edited this practice session.')
+  $('#status-message').text('You\'ve successfully edited that practice session.')
   $('#status-message').show()
   $('.edit-session').trigger('reset')
   $('.edit-session').hide()
+  $('.content').empty()
 }
 
 const onEditSessFailurePST = function () {
@@ -194,11 +194,11 @@ const onEditSessFailurePST = function () {
   $('#status-message').show()
 }
 
-const onDeleteSessSuccessPST = function (response) {
-  store.session = response.session
+const onDeleteSessSuccessPST = function () {
   setStatusSuccess()
-  $('#status-message').text('You\'ve successfully deleted this practice session.')
+  $('#status-message').text('You\'ve successfully deleted that practice session.')
   $('#status-message').show()
+  $('.content').empty()
 }
 
 const onDeleteSessFailurePST = function () {

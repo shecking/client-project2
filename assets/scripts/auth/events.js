@@ -110,8 +110,8 @@ const onEditSessStore = function (event) {
 
 const deleteSessClick = function (event) {
   event.preventDefault()
-  const sessionId = $(event.target).closest('session').data('id')
-  api.deleteSessPST(sessionId)
+  const id = $(event.target).data('id')
+  api.deleteSessPST(id)
     .then(ui.onDeleteSessSuccessPST)
     .catch(ui.onDeleteSessFailurePST)
 }
