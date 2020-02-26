@@ -60,7 +60,7 @@ const newSessPST = function (data) {
     data: data
   })
 }
-
+// known error in edit API call
 const editSessPST = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sessions/' + data.session.id,
@@ -71,7 +71,7 @@ const editSessPST = function (data) {
     data: data
   })
 }
-
+// known error in delete API call
 const deleteSessPST = function (sessionId) {
   return $.ajax({
     url: config.apiUrl + '/sessions/' + sessionId,
