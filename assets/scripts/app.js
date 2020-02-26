@@ -10,7 +10,7 @@ const authEvents = require('./auth/events.js')
 
 $(() => {
   $('#status-message').css('visibility', 'hidden')
-  $('.resetfield').hide()
+  $('.userfield').hide()
   $('.session-buttons').hide()
   $('.session-input').hide()
   //
@@ -24,12 +24,12 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePasswordPST)
   //
   $('#start-all-sess').on('click', authEvents.allSessClick)
-  // $('#start-new-sess').on('click', authEvents.newSessClick)
+  $('#start-new-sess').on('click', authEvents.newSessClick)
   // $('#start-edit-sess').on('click', authEvents.editSessClick)
   //
   $('#store-new-sess').on('submit', authEvents.onNewSessStore)
   $('#store-edit-sess').on('submit', authEvents.onEditSessStore)
-  $('#store-delete-sess').on('click', authEvents.onDeleteSessStore)
+  // $('#store-delete-sess').on('click', authEvents.onDeleteSessStore)
 
   $('.content').on('click', '.edit-session', authEvents.editSessClick)
   $('.content').on('click', '.delete-session', authEvents.deleteSessClick)

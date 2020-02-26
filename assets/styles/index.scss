@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 $success-text-color: #008000;
 $failure-text-color: #f00;
-$background-nav-bar: #7077a4;
+$element-background: #7077a4;
 $hover-color: #b5c1e6;
 $light-color: #d6d7dd;
 $dark-color: #4f4f4f;
@@ -11,7 +11,7 @@ body {
 }
 
 .btn-default {
-  background-color: $background-nav-bar;
+  background-color: $element-background;
   border: 0;
   border-radius: 8px;
   color: $light-color;
@@ -34,6 +34,10 @@ body {
   margin-top: 30px;
 }
 
+.edit-session {
+  padding: 5px;
+}
+
 .failure-message {
   background-color: $light-color;
   border: 0;
@@ -47,7 +51,7 @@ h1 {
   background-color: $dark-color;
   color: $light-color;
   padding: 60px 30px;
-  text-align: right;
+  text-align: left;
 }
 
 label {
@@ -56,6 +60,37 @@ label {
 
 legend {
   color: $light-color;
+}
+
+.long-input {
+  margin-bottom: 10px;
+  width: 60%;
+}
+
+main {
+  section {
+    background: $element-background;
+    border: 0;
+    border-radius: 4px;
+    color: $light-color;
+    margin: 10px;
+    outline: none;
+    padding: 5px;
+
+    p {
+      margin-bottom: 0;
+    }
+
+  }
+}
+
+.new-session {
+  padding: 5px;
+}
+
+.short-input {
+  margin-bottom: 10px;
+  width: 30%;
 }
 
 .success-message {
@@ -68,7 +103,7 @@ legend {
 }
 
 ul {
-  background-color: $background-nav-bar;
+  background-color: $element-background;
   display: inline-flex;
   font-size: 24px;
   justify-content: space-around;
