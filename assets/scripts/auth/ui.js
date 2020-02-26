@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./../store')
+const showSessionsTemplate = require('../templates/session-listing.handlebars')
 // const uiActions = require('./uiActions')
 
 const setStatusSuccess = function () {
@@ -11,6 +12,7 @@ const setStatusSuccess = function () {
 }
 
 const setStatusFailure = function () {
+  $('.content').empty()
   $('#status-message').removeClass()
   $('#status-message').addClass('failure-message')
   $('#status-message').css('visibility', 'visible')
@@ -114,10 +116,13 @@ const onSignOutFailurePST = function (response) {
   $('#status-message').text('Error: user not signed out. Please try again.')
 }
 
-const onAllSessSuccessPST = function () {
+const onAllSessSuccessPST = function (data) {
   setStatusSuccess()
   $('#status-message').text('Here are all your practice sessions.')
   $('#status-message').show()
+  $('.session-input').hide()
+  const showSessionsHtml = showSessionsTemplate({ sessions: data.sessions })
+  $('.content').html(showSessionsHtml)
 }
 
 const onAllSessFailurePST = function () {
@@ -127,8 +132,10 @@ const onAllSessFailurePST = function () {
 }
 
 const newSessClick = function () {
+  $('.content').empty()
   $('#status-message').hide()
   $('.session-input').show()
+  $('.new-session').show()
   $('.edit-session').hide()
 }
 
@@ -137,27 +144,46 @@ const onNewSessSuccessPST = function (response) {
   setStatusSuccess()
   $('#status-message').text('You\'ve successfully logged your practice session.')
   $('#status-message').show()
+  $('.new-session').trigger('reset')
+  $('.new-session').hide()
 }
 
 const onNewSessFailurePST = function () {
   setStatusFailure()
+  $('#status-message').text('Unable to create new practice session.')
   $('#status-message').show()
 }
 
-const onEditSessSuccessPST = function () {
+const editSessClick = function () {
+  $('.content').empty()
   $('#status-message').hide()
+  $('.session-input').show()
+  $('.new-session').hide()
+}
+
+const onEditSessSuccessPST = function (response) {
+  store.session = response.session
+  setStatusSuccess()
+  $('#status-message').text('You\'ve successfully edited this practice session.')
+  $('#status-message').show()
+  $('.edit-session').trigger('reset')
+  $('.edit-session').hide()
 }
 
 const onEditSessFailurePST = function () {
-  $('#status-message').hide()
+  setStatusFailure()
+  $('#status-message').text('Unable to edit this practice session.')
+  $('#status-message').show()
 }
 
-const onDeleteSessSuccessPST = function () {
-  $('#status-message').hide()
+const onDeleteSessSuccessPST = function (response) {
+  store.session = response.session
+  $('#status-message').text('You\'ve successfully deleted this practice session.')
+  $('#status-message').show()
 }
 
 const onDeleteSessFailurePST = function () {
-  $('#status-message').hide()
+  $('#status-message').show()
 }
 
 module.exports = {
@@ -177,6 +203,7 @@ module.exports = {
   newSessClick,
   onNewSessSuccessPST,
   onNewSessFailurePST,
+  editSessClick,
   onEditSessSuccessPST,
   onEditSessFailurePST,
   onDeleteSessSuccessPST,

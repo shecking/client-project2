@@ -99,12 +99,18 @@ const onNewSessStore = function (event) {
 }
 
 const onEditSessStore = function (event) {
-
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+  api.editSessPST(data)
+    .then(ui.onEditSessSuccessPST)
+    .catch(ui.onEditSessFailurePST)
 }
 
-const onDeleteSessStore = function (event) {
+const deleteSessClick = function (event) {
   event.preventDefault()
-  api.deleteSessPST()
+  const sessionId = $(event.target).closest('session').data('id')
+  api.deleteSessPST(sessionId)
     .then(ui.onDeleteSessSuccessPST)
     .catch(ui.onDeleteSessFailurePST)
 }
@@ -123,5 +129,5 @@ module.exports = {
   editSessClick,
   onNewSessStore,
   onEditSessStore,
-  onDeleteSessStore
+  deleteSessClick
 }

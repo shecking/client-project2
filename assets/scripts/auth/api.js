@@ -72,9 +72,9 @@ const editSessPST = function (data) {
   })
 }
 
-const deleteSessPST = function () {
+const deleteSessPST = function (sessionId) {
   return $.ajax({
-    url: config.apiUrl + '/sessions/' + store.session.id,
+    url: config.apiUrl + '/sessions/' + sessionId,
     method: 'DELETE',
     header: {
       Authorization: 'Token token=' + store.user.token

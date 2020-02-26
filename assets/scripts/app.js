@@ -24,12 +24,14 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePasswordPST)
   //
   $('#start-all-sess').on('click', authEvents.allSessClick)
-  $('#start-new-sess').on('click', authEvents.newSessClick)
-  $('#start-edit-sess').on('click', authEvents.editSessClick)
+  // $('#start-new-sess').on('click', authEvents.newSessClick)
+  // $('#start-edit-sess').on('click', authEvents.editSessClick)
   //
   $('#store-new-sess').on('submit', authEvents.onNewSessStore)
   $('#store-edit-sess').on('submit', authEvents.onEditSessStore)
   $('#store-delete-sess').on('click', authEvents.onDeleteSessStore)
 
-  authEvents.addHandlers()
+  $('.content').on('click', '.edit-session', authEvents.editSessClick)
+  $('.content').on('click', '.delete-session', authEvents.deleteSessClick)
+  // authEvents.addHandlers()
 })

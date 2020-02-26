@@ -56,31 +56,42 @@
           <button class="btn btn-default btn-block" id="start-delete-sess">DELETE SESSION</button>
         </div>
         <div class="col-9 session-input">
-          <form class="new-session" id="store-new-session">
+          <form class="new-session" id="store-new-sess">
             <fieldset>
               <legend>Log a new session</legend>
               <label for="new-date">Date:</label>
               <input name="session[date]" type="text" placeholder="Use the format YYYY-MM-DD" id="new-date">
+              <br>
               <label for="new-time">Time:</label>
               <input name="session[time]" type="text" placeholder="Use the format HH:MM:SS" id="new-time">
+              <br>
               <label for="new-prac-time">Practice Time:</label>
               <input name="session[practice_time]" type="text" maxlength="3" placeholder="Practice time in minutes" id="new-prac-time">
+              <br>
               <label for="new-notes">Notes:</label>
               <input name="session[notes]" type="text" maxlength="1000" placeholder="Notes on this session" id="new-notes">
-              <input class="btn btn-default" type="submit" value="Submit">
+              <br>
+              <input class="btn btn-default" type="submit" value="Submit new">
             </fieldset>
           </form>
-          <form class="edit-session" id="store-edit-session">
+          <form class="edit-session" id="store-edit-sess">
             <fieldset>
               <legend>Edit an existing session</legend>
-              <input placeholder="Use the format YY/MM/DD">
-              <input placeholder="Use the format HH:MM:SS">
-              <input placeholder="Practice time in minutes">
-              <input placeholder="Notes on this session">
-              <input class="btn btn-default" type="submit" value="Submit">
+              <label for="edit-date">Date:</label>
+              <input name="session[date]" type="text" placeholder="Use the format YY/MM/DD">
+              <br>
+              <label for="edit-time">Time:</label>
+              <input name="session[time]" type="text" placeholder="Use the format HH:MM:SS">
+              <br>
+              <label for="edit-prac-time">Practice Time:</label>
+              <input name="session[practice_time]" type="text" placeholder="Practice time in minutes">
+              <br>
+              <label for="edit-notes">Notes:</label>
+              <input name="session[notes]" type="text" placeholder="Notes on this session">
+              <br>
+              <input class="btn btn-default" type="submit" value="Submit edit">
             </fieldset>
           </form>
-          <button class="btn-default">BUTTON 6</button>
         </div>
       </div>
       <main>

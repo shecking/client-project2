@@ -14,11 +14,11 @@
       {{session.practice_time}}
     </h3>
     <h6>Notes:</h6>
-    <h3>
+    <p>
       {{session.notes}}
-    </h3>
-    <button type="submit" class="btn btn-danger delete-session">Delete</button>
-    <!-- {{> partial}} -->
+    </p>
+    <button type="submit" class="btn btn-primary edit-session" data-id="{{id}}">Edit</button>
+    <button type="submit" class="btn btn-danger delete-session" data-id="{{id}}">Delete</button>
   </section>
 
 {{/each}}
