@@ -33,25 +33,53 @@
         <form class="userfield" id="sign-up">
           <fieldset>
             <legend>Sign up for PST</legend>
-            <input name="credentials[email]" type="email" placeholder="example@google.com">
-            <input name="credentials[password]" type="password" placeholder="Password">
-            <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+            <label for="sign-up-email">Email:</label>
+            <br>
+            <input name="credentials[email]" type="email" placeholder="example@google.com" id="sign-up-email">
+            <br>
+            <br>
+            <label for="sign-up-pw">Password:</label>
+            <br>
+            <input name="credentials[password]" type="password" id="sign-up-pw">
+            <br>
+            <br>
+            <label for="sign-up-pw-confirm">Confirm Password:</label>
+            <br>
+            <input name="credentials[password_confirmation]" type="password" id="sign-up-pw-confirm">
+            <br>
+            <br>
             <input class="btn btn-default" type="submit" value="Sign up">
           </fieldset>
         </form>
         <form class="userfield" id="sign-in">
           <fieldset>
             <legend>Sign in to your PST account</legend>
-            <input name="credentials[email]" type="email" placeholder="example@google.com">
-            <input name="credentials[password]" type="password" placeholder="Password">
+            <label for="sign-in-email">Email:</label>
+            <br>
+            <input name="credentials[email]" type="email" placeholder="example@google.com" id="sign-in-email">
+            <br>
+            <br>
+            <label for="sign-in-password">Password:</label>
+            <br>
+            <input name="credentials[password]" type="password" id="sign-in-password">
+            <br>
+            <br>
             <input class="btn btn-default" type="submit" value="Sign in">
           </fieldset>
         </form>
         <form class="userfield" id="change-password">
           <fieldset>
             <legend>Change your password</legend>
-            <input name="passwords[old]" type="password" placeholder="Current password">
-            <input name="passwords[new]" type="password" placeholder="New password">
+            <label for="change-pw-old">Old password:</label>
+            <br>
+            <input name="passwords[old]" type="password" placeholder="Current password" id="change-pw-old">
+            <br>
+            <br>
+            <label for="change-pw-new">New password:</label>
+            <br>
+            <input name="passwords[new]" type="password" placeholder="New password" id="change-pw-new">
+            <br>
+            <br>
             <input class="btn btn-default" type="submit" value="Change password">
           </fieldset>
         </form>
