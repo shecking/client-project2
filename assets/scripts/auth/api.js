@@ -63,7 +63,7 @@ const newSessPST = function (data) {
 
 const editSessPST = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/sessions/' + store.session.id,
+    url: config.apiUrl + '/sessions/' + data.session.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
