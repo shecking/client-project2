@@ -198,11 +198,10 @@ const onEditSessFailurePST = function () {
   $('#status-message').show()
 }
 
-const onDeleteSessSuccessPST = function () {
+const onDeleteSessSuccessPST = function (data) {
   setStatusSuccess()
   $('#status-message').text('You\'ve successfully deleted that practice session.')
   $('#status-message').show()
-  $('.content').empty()
 }
 
 const onDeleteSessFailurePST = function () {
