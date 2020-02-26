@@ -116,8 +116,8 @@ const onSignOutSuccessPST = function (response) {
 }
 
 const onSignOutFailurePST = function (response) {
-  setStatusFailure()
   $('#status-message').text('Error: user not signed out. Please try again.')
+  setStatusFailure()
 }
 
 const onAllSessSuccessPST = function (data) {
