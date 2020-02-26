@@ -126,7 +126,11 @@ const onAllSessSuccessPST = function (data) {
   $('.session-input').hide()
 
   const showSessionsHtml = showSessionsTemplate({ sessions: data.sessions })
-  $('.content').html(showSessionsHtml)
+  if (showSessionsHtml) {
+    $('.content').html(showSessionsHtml)
+  } else {
+    $('.content').text('No practice sessions to show')
+  }
 }
 
 const onAllSessFailurePST = function () {
