@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Practice Session Tracker</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <h1>Practice Session Tracker</h1>
+      <p style="font-size:50px">&#127926; &#127926;</p>
+      <h4>
+        This is an app for logging your personal practice sessions.</br>
+        You can create new sessions, edit and delete old ones, and view your past sessions.</br>
+        <br>
+        "Quality is not an act; it is a habit." - Aristotle
+      </h4>
+      <br>
+      <div>
+        <ul>
+          <li><button class="btn btn-default navbar" id="sign-up-nav">Sign Up</button></li>
+          <li><button class="btn btn-default navbar" id="sign-in-nav">Sign In</button></li>
+          <li><button class="btn btn-default navbar" id="change-password-nav">Change Password</button></li>
+          <li><button class="btn btn-default navbar" id="sign-out-nav">Sign Out</button></li>
+        </ul>
+      </div>
+      <p id="status-message"></p>
+      <br>
+      <div class="container" id="input-fields">
+        <form class="userfield" id="sign-up">
+          <fieldset>
+            <legend>Sign up for PST</legend>
+            <label for="sign-up-email">Email:</label>
+            <br>
+            <input name="credentials[email]" type="email" placeholder="example@google.com" id="sign-up-email">
+            <br>
+            <br>
+            <label for="sign-up-pw">Password:</label>
+            <br>
+            <input name="credentials[password]" type="password" id="sign-up-pw">
+            <br>
+            <br>
+            <label for="sign-up-pw-confirm">Confirm Password:</label>
+            <br>
+            <input name="credentials[password_confirmation]" type="password" id="sign-up-pw-confirm">
+            <br>
+            <br>
+            <input class="btn btn-default" type="submit" value="Sign up">
+          </fieldset>
+        </form>
+        <form class="userfield" id="sign-in">
+          <fieldset>
+            <legend>Sign in to your PST account</legend>
+            <label for="sign-in-email">Email:</label>
+            <br>
+            <input name="credentials[email]" type="email" placeholder="example@google.com" id="sign-in-email">
+            <br>
+            <br>
+            <label for="sign-in-password">Password:</label>
+            <br>
+            <input name="credentials[password]" type="password" id="sign-in-password">
+            <br>
+            <br>
+            <input class="btn btn-default" type="submit" value="Sign in">
+          </fieldset>
+        </form>
+        <form class="userfield" id="change-password">
+          <fieldset>
+            <legend>Change your password</legend>
+            <label for="change-pw-old">Old password:</label>
+            <br>
+            <input name="passwords[old]" type="password" placeholder="Current password" id="change-pw-old">
+            <br>
+            <br>
+            <label for="change-pw-new">New password:</label>
+            <br>
+            <input name="passwords[new]" type="password" placeholder="New password" id="change-pw-new">
+            <br>
+            <br>
+            <input class="btn btn-default" type="submit" value="Change password">
+          </fieldset>
+        </form>
+      </div>
+      <div class="row">
+        <div class="col-3 session-buttons">
+          <button class="btn btn-default btn-block" id="start-all-sess">SEE ALL SESSIONS</button>
+          <button class="btn btn-default btn-block" id="start-new-sess">NEW SESSION</button>
+          <!-- <button class="btn btn-default btn-block" id="start-edit-sess">EDIT SESSION</button> -->
+          <!-- <button class="btn btn-default btn-block" id="start-delete-sess">DELETE SESSION</button> -->
+        </div>
+        <div class="col-9 session-input">
+          <form class="new-session" id="store-new-sess">
+            <fieldset>
+              <legend>Log a new session</legend>
+              <label for="new-date">Date:</label>
+              <br>
+              <input class="short-input" name="session[date]" type="text" placeholder="YYYY-MM-DD" id="new-date" required>
+              <br>
+              <label for="new-time">Time:</label>
+              <br>
+              <input class="short-input" name="session[time]" type="text" placeholder="HH:MM" id="new-time" required>
+              <br>
+              <label for="new-prac-time">Practice Time:</label>
+              <br>
+              <input class="short-input" name="session[practice_time]" type="text" maxlength="3" placeholder="# of minutes" id="new-prac-time" required>
+              <br>
+              <label for="new-notes">Notes:</label>
+              <br>
+              <input class="long-input" name="session[notes]" type="text" maxlength="1000" placeholder="Notes on this session" id="new-notes">
+              <br>
+              <input class="btn btn-default" type="submit" value="Submit">
+            </fieldset>
+          </form>
+          <form class="edit-session" id="store-edit-sess">
+            <fieldset>
+              <legend>Edit an existing session</legend>
+              <label for="edit-date">Date:</label>
+              <br>
+              <input class="short-input" name="session[date]" type="text" placeholder="YYYY-MM-DD" required>
+              <br>
+              <label for="edit-time">Time:</label>
+              <br>
+              <input class="short-input" name="session[time]" type="text" placeholder="HH:MM" required>
+              <br>
+              <label for="edit-prac-time">Practice Time:</label>
+              <br>
+              <input class="short-input" name="session[practice_time]" type="text" placeholder="# of minutes" required>
+              <br>
+              <label for="edit-notes">Notes:</label>
+              <br>
+              <input class="long-input" name="session[notes]" type="text" placeholder="Notes on this session">
+              <br>
+              <input class="btn btn-default" type="submit" value="Save">
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <br>
+      <main>
+        <div class="content" id="content"></div>
+      </main>
+    </body>
+</html>
