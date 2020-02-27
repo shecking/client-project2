@@ -1,6 +1,6 @@
 # Practice Session Tracker: Application Description
 
-This application (Practice Session Tracker or PST) is intended for musicians of all kinds as a way to log practice sessions. PST is capable of storing a date, time, time practiced, and notes for any number of a user's practice sessions. Sessions are protected by a login/logout procedure, only allowing a signed in user to view their own practice sessions. PST was created using a custom back end server supported by Ruby on Rails, and its front end was developed using JavaScript
+This application (Practice Session Tracker or PST) is intended for musicians of all kinds as a way to log practice sessions. PST is capable of storing a date, time, time practiced, and notes for any number of a user's practice sessions. Sessions are protected by a login/logout procedure, only allowing a signed in user to view their own practice sessions. PST was created using a custom back end server supported by Ruby on Rails, and its front end was mainly developed using JavaScript.
 
 This file is for the front end of the application.
 
